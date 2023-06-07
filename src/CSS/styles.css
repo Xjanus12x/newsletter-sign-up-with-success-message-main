@@ -1,0 +1,206 @@
+.hidden {
+  display: none;
+}
+
+body {
+  font-family: var(--ff);
+  font-size: var(--fs1);
+  color: var(--dark-slate-grey);
+}
+
+.container {
+  display: grid;
+}
+
+.hide {
+  animation: hideAnimation 1s forwards;
+}
+
+@keyframes hideAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.newsletter-description {
+  padding: 2rem 1.5rem;
+  display: grid;
+  gap: 2rem;
+}
+.newsletter-description > div {
+  display: grid;
+  gap: 1.5rem;
+}
+.newsletter-title {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+.newsletter-benefits {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+.newsletter-benefits > li {
+  background-image: url(../assets/images/icon-list.svg);
+  background-repeat: no-repeat;
+  background-position: left top;
+  padding-left: 2rem;
+}
+.subscription-form {
+  display: grid;
+  gap: 1.5rem;
+}
+.subscription-form > div {
+  display: grid;
+  gap: 0.5rem;
+}
+.input-label {
+  display: flex;
+  justify-content: space-between;
+}
+.input-label :is(label, p) {
+  font-size: 0.8rem;
+  font-weight: var(--fw2);
+}
+.input-label p {
+  color: tomato;
+}
+.subscription-form > div input {
+  padding: 0.9rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.subscription-form > div input[data-state-error="false"] {
+  border: 1px solid var(--grey);
+}
+.subscription-form > div input[data-state-error="true"] {
+  border: 1px solid var(--tomato);
+  background-color: var(--errorClr);
+}
+.subscription-form > div input[data-state-error="true"]::placeholder {
+  color: var(--tomato);
+}
+
+.button {
+  color: var(--white);
+  background-color: var(--dark-slate-grey);
+  padding: 0.9rem;
+  border-radius: 0.5rem;
+  border: transparent;
+  font-weight: var(--fw1);
+  cursor: pointer;
+  transition: background-color 500ms ease-in-out;
+}
+.button:hover {
+  background-color: var(--tomato);
+}
+
+.illustration-container {
+  padding: 9rem;
+  background-image: url(../assets/images/illustration-sign-up-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  grid-row: 1/-1;
+  border-radius: 0 0 1rem 1rem;
+}
+footer {
+  color: var(--tomato);
+}
+footer a {
+  color: red;
+}
+
+.success {
+  opacity: 0;
+  transition: opacity 1000ms ease-out;
+}
+.unhide {
+  animation: unhideAnimation 1s forwards;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  padding: 2rem 1.5rem;
+}
+.unhide > section {
+  display: grid;
+  gap: 1.3rem;
+}
+.unhide > section h2 {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+@keyframes unhideAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.user-email {
+  font-weight: var(--fw2);
+}
+@media (min-width: 700px) {
+  body {
+    background-color: var(--charcoal-grey);
+    display: grid;
+    place-items: center;
+    grid-template-rows: 1fr auto;
+  }
+  .container {
+    background-color: var(--white);
+    grid-template-columns: 1fr 27rem;
+    gap: 2rem;
+    padding: 1.5rem 1.5rem;
+    border-radius: 2rem;
+    margin-inline: 1rem;
+  }
+  .newsletter-description {
+    padding-inline: 2rem;
+    align-self: center;
+    gap: 3rem;
+  }
+  .newsletter-title {
+    font-size: 3.5rem;
+  }
+  .newsletter-benefits {
+    gap: 0.8rem;
+  }
+  .subscription-form .button {
+    padding: 1rem;
+  }
+  .illustration-container {
+    padding-block: 20rem;
+    max-width: 100%;
+    background-image: url(../assets/images/illustration-sign-up-desktop.svg);
+    grid-row: unset;
+    border-radius: 1rem;
+  }
+
+  .unhide {
+    min-height: unset;
+    place-content: center;
+    padding: 3rem;
+    background-color: var(--white);
+    gap: 1rem;
+    border-radius: 2rem;
+  }
+  .unhide > section {
+    display: grid;
+    gap: 1.3rem;
+  }
+  .unhide > section h2 {
+    font-size: 3rem;
+    max-width: 10ch;
+  }
+  .unhide > section p {
+    max-width: 42ch;
+  }
+}
