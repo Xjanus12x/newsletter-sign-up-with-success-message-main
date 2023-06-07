@@ -15,15 +15,19 @@ function handleEmailInput() {
 }
 
 function handleFormSubmit() {
-  newsLetter.classList.add("hide");
-  userEmail.textContent = emailInput.value;
-  footer.classList.add("hidden");
-  newsLetter.addEventListener("animationend", () => {
-    newsLetter.style.display = "none";
-    sucessMsg.classList.remove("hidden");
-    sucessMsg.classList.add("unhide");
-  });
+  const isValidEmail = regex.test(emailInput.value);
+  if (isValidEmail) {
+    newsLetter.classList.add("hide");
+    userEmail.textContent = emailInput.value;
+    footer.classList.add("hidden");
+    newsLetter.addEventListener("animationend", () => {
+      newsLetter.style.display = "none";
+      sucessMsg.classList.remove("hidden");
+      sucessMsg.classList.add("unhide");
+    });
+  }
 }
 
 emailInput.addEventListener("keyup", handleEmailInput);
 submitButton.addEventListener("click", handleFormSubmit);
+
